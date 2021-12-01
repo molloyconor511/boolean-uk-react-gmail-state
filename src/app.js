@@ -1,13 +1,53 @@
-import Header from './components/header'
+import { useState } from "react";
 
-import initialEmails from './data/emails'
+import Header from "./components/header";
+import Mails from "./Mails";
 
-import './styles/app.css'
+//import initialEmails from "./data/emails";
 
-function App() {
-  // Use initialEmails for state
-  console.log(initialEmails)
+import "./styles/app.css";
 
+//function App() {
+// Use initialEmails for state
+const App = () => {
+  // console.log(initialEmails);
+  const [mails, setMails] = useState([
+    {
+      id: 1,
+      sender: `Zoom`,
+      title: `Cloud Recording - Nicolas Marcora's Personal Meeting Room is now available`,
+      starred: false,
+      read: true,
+    },
+    {
+      id: 2,
+      sender: `Zoom`,
+      title: `Sean Davison has joined your Personal Meeting Room`,
+      starred: false,
+      read: false,
+    },
+    {
+      id: 3,
+      sender: `Notion`,
+      title: `1 update in Boolean`,
+      starred: true,
+      read: true,
+    },
+    {
+      id: 4,
+      sender: `The Calendly Team`,
+      title: `Use more than one calendar?`,
+      starred: false,
+      read: false,
+    },
+    {
+      id: 5,
+      sender: `Patrick`,
+      title: `Updated invitation: Coding chat with Nico`,
+      starred: true,
+      read: false,
+    },
+  ]);
   return (
     <div className="app">
       <Header />
@@ -39,9 +79,47 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">{/* Render a list of emails here */}</main>
+      <Mails mails={mails} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
+//export default [
+//   {
+//     id: 1,
+//     sender: `Zoom`,
+//     title: `Cloud Recording - Nicolas Marcora's Personal Meeting Room is now available`,
+//     starred: false,
+//     read: true
+//   },
+//   {
+//     id: 2,
+//     sender: `Zoom`,
+//     title: `Sean Davison has joined your Personal Meeting Room`,
+//     starred: false,
+//     read: false
+//   },
+//   {
+//     id: 3,
+//     sender: `Notion`,
+//     title: `1 update in Boolean`,
+//     starred: true,
+//     read: true
+//   },
+//   {
+//     id: 4,
+//     sender: `The Calendly Team`,
+//     title: `Use more than one calendar?`,
+//     starred: false,
+//     read: false
+//   },
+//   {
+//     id: 5,
+//     sender: `Patrick`,
+//     title: `Updated invitation: Coding chat with Nico`,
+//     starred: true,
+//     read: false
+//   }
+// ]
